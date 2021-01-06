@@ -1,0 +1,20 @@
+{
+  "name": "jaz-ts-utils",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prepublish": "tsc",
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "lint": "eslint . --ext .ts",
+    "lint-fix": "eslint . --ext .ts --fix"
+  },
+  "author": "Jazcash",
+  "license": "unlicense",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jazcash/jaz-ts-utils.git"
+  }
+}
