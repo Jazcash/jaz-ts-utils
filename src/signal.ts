@@ -7,6 +7,12 @@ export class Signal<T = any> {
         return binding;
     }
 
+    public addOnce(callback: (data: T) => void) : SignalBinding<T> {
+        const binding = new SignalBinding<T>(this, callback, true);
+        this.bindings.push(binding);
+        return binding;
+    }
+
     public dispatch(data?: T) {
         for (const binding of this.bindings) {
             binding.execute(data as T);
@@ -31,10 +37,7 @@ export class Signal<T = any> {
 }
 
 export class SignalBinding<T = any> {
-    protected signal: Signal;
-    protected listener?: (data: T) => void;
-
-    constructor(signal: Signal, listener: (data: T) => void) {
+    constructor(protected signal: Signal, protected listener?: (data: T) => void, protected destroyAfterExecute = false) {
         this.signal = signal;
         this.listener = listener;
     }
@@ -42,6 +45,9 @@ export class SignalBinding<T = any> {
     public execute(data: T) {
         if (this.listener) {
             this.listener(data);
+        }
+        if (this.destroyAfterExecute) {
+            this.destroy();
         }
     }
 
