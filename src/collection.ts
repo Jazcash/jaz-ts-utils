@@ -14,3 +14,11 @@ export function entries<T extends object>(t: T): Entries<T>[] {
 export function randomFromArray<T>(arr: T[]): T {
     return arr[Math.floor(Math.random() * arr.length)];
 }
+
+export function lastInArray<T>(target: T[]): T {
+    return target[target.length - 1];
+}
+
+export function firstInArray<T>(target:T[]): T {
+    return target[0];
+}
