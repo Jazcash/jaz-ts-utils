@@ -22,3 +22,11 @@ export function lastInArray<T>(target: T[]): T {
 export function firstInArray<T>(target:T[]): T {
     return target[0];
 }
+
+export function removeFromArray<T>(target: T[], item: T): T[] {
+    const index = target.indexOf(item);
+    if (index > -1) {
+        target.splice(index, 1);
+    }
+    return target;
+}
