@@ -10,7 +10,7 @@ export type DeepWritable<T> = { -readonly [P in keyof T]: DeepWritable<T[P]> };
 
 export type DeepPartial<T> = { [P in keyof T]?: DeepPartial<T[P]> };
 
-type ImmutablePrimitive = undefined | null | boolean | string | number | Function;
+export type ImmutablePrimitive = undefined | null | boolean | string | number | Function;
 
 export type Immutable<T> =
     T extends ImmutablePrimitive ? T :
@@ -22,3 +22,5 @@ export type ImmutableArray<T> = ReadonlyArray<Immutable<T>>;
 export type ImmutableMap<K, V> = ReadonlyMap<Immutable<K>, Immutable<V>>;
 export type ImmutableSet<T> = ReadonlySet<Immutable<T>>;
 export type ImmutableObject<T> = { readonly [K in keyof T]: Immutable<T[K]> };
+
+export type ExcludeMethods<T> = Pick<T, { [K in keyof T]: T[K] extends Function ? never : K }[keyof T]>;
