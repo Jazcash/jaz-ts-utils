@@ -30,3 +30,5 @@ export function removeFromArray<T>(target: T[], item: T): T[] {
     }
     return target;
 }
+
+export const objectKeys = Object.keys as <T>(o: T) => (Extract<keyof T, string>)[];
