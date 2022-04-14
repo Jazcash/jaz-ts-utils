@@ -1,6 +1,6 @@
-import { AbstractWorker } from "./abstract-worker";
+import { WorkerWrapper } from "./worker-wrapper";
 
-export class BetterWorkerHost extends AbstractWorker {
+export class BetterWorkerHost extends WorkerWrapper {
     protected worker: Worker;
 
     // would be nice if it were possible to pass the worker filepath and initialise it internally,
@@ -15,7 +15,7 @@ export class BetterWorkerHost extends AbstractWorker {
         });
     }
 
-    public send(channel: string, data?: any) {
+    public override send(channel: string, data?: any) {
         this.worker.postMessage({ channel, data });
     }
 }

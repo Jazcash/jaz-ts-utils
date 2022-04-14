@@ -24,3 +24,5 @@ export type ImmutableSet<T> = ReadonlySet<Immutable<T>>;
 export type ImmutableObject<T> = { readonly [K in keyof T]: Immutable<T[K]> };
 
 export type ExcludeMethods<T> = Pick<T, { [K in keyof T]: T[K] extends Function ? never : K }[keyof T]>;
+
+export type SetUndefinedValues<T> = { [K in keyof T]?: T[K] | undefined }; // TODO: move to jaz-ts-utils

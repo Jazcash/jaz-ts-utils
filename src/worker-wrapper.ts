@@ -5,7 +5,7 @@ export interface WorkerMessage {
     data: any;
 }
 
-export abstract class AbstractWorker {
+export abstract class WorkerWrapper {
     protected messageHandlers: { [channel: string]: Signal<any> } = {};
 
     public send(channel: string, data?: any) : void {

@@ -1,6 +1,6 @@
-import { AbstractWorker } from "./abstract-worker";
+import { WorkerWrapper } from "./worker-wrapper";
 
-export class BetterWorker extends AbstractWorker {
+export class BetterWorker extends WorkerWrapper {
     constructor(protected debug = false) {
         super();
 
@@ -17,7 +17,7 @@ export class BetterWorker extends AbstractWorker {
         }
     }
 
-    public send(channel: string, data?: any) {
+    public override send(channel: string, data?: any) {
         postMessage({ channel, data });
     }
 }

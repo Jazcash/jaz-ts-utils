@@ -11,6 +11,8 @@ export function entries<T extends object>(t: T): Entries<T>[] {
     return Object.entries(t) as any;
 }
 
+export const objectKeys = Object.keys as <T>(o: T) => (Extract<keyof T, string>)[];
+
 export function randomFromArray<T>(arr: T[]): T {
     return arr[Math.floor(Math.random() * arr.length)];
 }
@@ -31,4 +33,17 @@ export function removeFromArray<T>(target: T[], item: T): T[] {
     return target;
 }
 
-export const objectKeys = Object.keys as <T>(o: T) => (Extract<keyof T, string>)[];
+export function shuffle<T>(array: Readonly<T[]>): T[] {
+    const arrayCopy = array.slice();
+
+    let currentIndex = arrayCopy.length;
+    let randomIndex = 0;
+
+    while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [arrayCopy[currentIndex], arrayCopy[randomIndex]] = [arrayCopy[randomIndex], arrayCopy[currentIndex]];
+    }
+
+    return arrayCopy;
+}
