@@ -10,4 +10,4 @@ export * from "./better-worker-host";
 export * from "./deep-proxy";
 export * from "./assign";
 export * from "./clone";
-export * from "./count-records";
+export * from "./count-occurrences";
