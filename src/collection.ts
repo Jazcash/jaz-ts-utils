@@ -13,15 +13,15 @@ export function entries<T extends object>(t: T): Entries<T>[] {
 
 export const objectKeys = Object.keys as <T>(o: T) => (Extract<keyof T, string>)[];
 
-export function randomFromArray<T>(arr: T[]): T {
+export function randomFromArray<T>(arr: T[]): T | undefined {
     return arr[Math.floor(Math.random() * arr.length)];
 }
 
-export function lastInArray<T>(target: T[]): T {
+export function lastInArray<T>(target: T[]): T | undefined {
     return target[target.length - 1];
 }
 
-export function firstInArray<T>(target:T[]): T {
+export function firstInArray<T>(target:T[]): T | undefined {
     return target[0];
 }
 
