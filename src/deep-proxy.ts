@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // eslint-disable-next-line @typescript-eslint/ban-types
 export function createDeepProxy<T extends object>(obj: T, proxyHandler: (breadcrumb: string) => ProxyHandler<T>, breadcrumb: string) : T {
     const newObj: any = Array.isArray(obj) ? [] : {};

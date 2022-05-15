@@ -15,7 +15,7 @@ export class BetterWorkerHost extends WorkerWrapper {
         });
     }
 
-    public override send(channel: string, data?: any) {
+    public override send(channel: string, data?: unknown) {
         this.worker.postMessage({ channel, data });
     }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export class Signal<T = any> {
     public bindings: Array<SignalBinding<T>> = [];
 

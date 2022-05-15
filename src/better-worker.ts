@@ -17,6 +17,7 @@ export class BetterWorker extends WorkerWrapper {
         }
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     public override send(channel: string, data?: any) {
         postMessage({ channel, data });
     }
