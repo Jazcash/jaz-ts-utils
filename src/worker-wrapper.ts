@@ -1,18 +1,19 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Signal } from "./signal";
 
 export interface WorkerMessage {
     channel: string;
-    data: unknown;
+    data: any;
 }
 
 export abstract class WorkerWrapper {
-    protected messageHandlers: { [channel: string]: Signal<unknown> } = {};
+    protected messageHandlers: { [channel: string]: Signal<any> } = {};
 
-    public send(channel: string, data?: unknown) : void {
+    public send(channel: string, data?: any) : void {
         //
     }
 
-    public on(channel: string) : Signal<unknown> {
+    public on(channel: string) : Signal<any> {
         if (!this.messageHandlers[channel]) {
             this.messageHandlers[channel] = new Signal();
         }
@@ -20,9 +21,9 @@ export abstract class WorkerWrapper {
         return this.messageHandlers[channel];
     }
 
-    public invoke(channel: string, data?: unknown) {
-        return new Promise<unknown>(resolve => {
-            this.on(channel).addOnce((data: unknown) => resolve(data));
+    public invoke(channel: string, data?: any) {
+        return new Promise<any>(resolve => {
+            this.on(channel).addOnce((data: any) => resolve(data));
             this.send(channel, data);
         });
     }

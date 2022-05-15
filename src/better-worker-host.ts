@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { WorkerWrapper } from "./worker-wrapper";
 
 export class BetterWorkerHost extends WorkerWrapper {
@@ -15,7 +16,7 @@ export class BetterWorkerHost extends WorkerWrapper {
         });
     }
 
-    public override send(channel: string, data?: unknown) {
+    public override send(channel: string, data?: any) {
         this.worker.postMessage({ channel, data });
     }
 }
