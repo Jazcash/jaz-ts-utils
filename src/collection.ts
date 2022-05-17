@@ -48,3 +48,14 @@ export function shuffle<T>(array: Readonly<T[]>): T[] {
 
     return arrayCopy;
 }
+
+// https://stackoverflow.com/a/62765924/1864403
+// Remove this when groupBy is available in TS https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/groupBy
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const groupBy = <T, K extends keyof any>(list: T[], getKey: (item: T) => K) =>
+    list.reduce((previous, currentItem) => {
+        const group = getKey(currentItem);
+        if (!previous[group]) previous[group] = [];
+        previous[group].push(currentItem);
+        return previous;
+    }, {} as Record<K, T[]>);
