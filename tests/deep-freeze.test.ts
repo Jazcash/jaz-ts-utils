@@ -1,5 +1,5 @@
 
-import { deepFreeze } from "../src/deep-freeze";
+import { deepFreeze } from "../src/collection";
 
 it("deepFreeze", () => {
     const obj = [{ name: "bob", address: { line1: "thing" } }];

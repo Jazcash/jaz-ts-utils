@@ -1,3 +1,5 @@
+import { DeepReadonly } from ".";
+
 export function asArray<T>(target: T | T[]): T[] {
     if (Array.isArray(target)) {
         return target;
@@ -61,4 +63,29 @@ export function groupBy<T, K extends keyof any>(list: T[], getKey: (item: T) => 
         previous.get(group)!.push(currentItem);
         return previous;
     }, new Map<K, T[]>());
+}
+
+export function deepFreeze<T>(obj: T) : DeepReadonly<T> {
+    objectKeys(obj).forEach((prop) => {
+        if (typeof obj[prop] === "object" && !Object.isFrozen(obj[prop])) {
+            deepFreeze(obj[prop]);
+        }
+    });
+    return Object.freeze(obj) as DeepReadonly<T>;
+}
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// https://javascript.plainenglish.io/deep-clone-an-object-and-preserve-its-type-with-typescript-d488c35e5574
+export function clone<T>(source: T): T {
+    return Array.isArray(source)
+        ? source.map(item => clone(item))
+        : source instanceof Date
+            ? new Date(source.getTime())
+            : source && typeof source === "object"
+                ? Object.getOwnPropertyNames(source).reduce((o, prop) => {
+                    Object.defineProperty(o, prop, Object.getOwnPropertyDescriptor(source, prop)!);
+                    o[prop] = clone((source as { [key: string]: any })[prop]);
+                    return o;
+                }, Object.create(Object.getPrototypeOf(source)))
+                : source as T;
 }
