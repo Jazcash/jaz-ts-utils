@@ -23,6 +23,7 @@ export type ImmutableArray<T> = ReadonlyArray<Immutable<T>>;
 export type ImmutableMap<K, V> = ReadonlyMap<Immutable<K>, Immutable<V>>;
 export type ImmutableSet<T> = ReadonlySet<Immutable<T>>;
 export type ImmutableObject<T> = { readonly [K in keyof T]: Immutable<T[K]> };
+export type DeepReadonly<T> = ImmutableObject<T>;
 
 export type ExcludeMethods<T> = Pick<T, { [K in keyof T]: T[K] extends Function ? never : K }[keyof T]>;
 
