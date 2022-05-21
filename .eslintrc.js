@@ -49,13 +49,19 @@ module.exports = {
         "@typescript-eslint/no-namespace": "off",
         "@typescript-eslint/ban-ts-comment": "off",
 
-        "vue/no-dupe-keys": "off",
         "vue/html-indent": ["error", 4],
         "vue/no-v-model-argument": "off",
         "vue/multi-word-component-names": "off",
         "vue/no-multiple-template-root": "off",
-        "vue/max-attributes-per-line": "off",
-        "vue/first-attribute-linebreak": "off",
+        "vue/max-attributes-per-line": ["error", {
+            "singleline": {
+                "max": 6
+            },
+            "multiline": {
+                "max": 1
+            }
+        }],
+        "vue/attribute-hyphenation": ["error", "never"],
 
         "unused-imports/no-unused-imports": "error",
     }
