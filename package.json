@@ -5,7 +5,7 @@
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "scripts": {
-        "prepublish": "ttsc",
+        "prepublish": "npm run build",
         "build": "ttsc",
         "dev": "ttsc --watch",
         "lint-check": "eslint . --ext .ts,.vue",

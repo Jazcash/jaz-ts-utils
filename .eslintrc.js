@@ -15,9 +15,9 @@ module.exports = {
         "build",
         "dist_electron",
         "node_modules",
-        "output.js",
         "src/routes.ts",
         "working-files",
+        "**/*.js",
     ],
     extends: [
         "eslint:recommended",
