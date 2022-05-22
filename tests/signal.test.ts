@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-imports */
 import { Signal } from "../src/signal";
 
 it("add", () => {

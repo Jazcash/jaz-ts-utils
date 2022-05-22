@@ -1,4 +1,4 @@
-import { SetUndefinedValues } from "./types";
+import { SetUndefinedValues } from "@/types";
 
 export function assign<T>(target: T, source: SetUndefinedValues<T>) {
     for (const key in source) {

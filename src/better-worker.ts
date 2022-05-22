@@ -1,4 +1,4 @@
-import { WorkerWrapper } from "./worker-wrapper";
+import { WorkerWrapper } from "@/worker-wrapper";
 
 export class BetterWorker extends WorkerWrapper {
     constructor(protected debug = false) {

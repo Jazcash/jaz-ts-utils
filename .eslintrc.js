@@ -38,6 +38,12 @@ module.exports = {
     ],
     rules: {
         "no-console": "off",
+        "no-restricted-imports": [
+            "error",
+            {
+                patterns: [".*"],
+            },
+        ],
 
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "@typescript-eslint/no-unused-vars": "off",
