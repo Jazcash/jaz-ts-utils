@@ -21,7 +21,7 @@ export class BufferStream {
         return str;
     }
 
-    public readInt(size: 1 | 2 | 3 | 4 = 4, unsigned = false) : number {
+    public readInt(size: 1 | 2 | 3 | 4 = 4, unsigned = false): number {
         if (unsigned) {
             return this.isBigEndian ? this.read(size).readUIntBE(0, size) : this.read(size).readUIntLE(0, size);
         } else {
@@ -29,15 +29,15 @@ export class BufferStream {
         }
     }
 
-    public readInts(amount: number, size: 1 | 2 | 3 | 4 = 4, unsigned = false) : number[] {
+    public readInts(amount: number, size: 1 | 2 | 3 | 4 = 4, unsigned = false): number[] {
         const nums: number[] = [];
-        for (let i=0; i<amount; i++) {
+        for (let i = 0; i < amount; i++) {
             nums.push(this.readInt(size, unsigned));
         }
         return nums;
     }
 
-    public readBigInt(unsigned = false) : bigint {
+    public readBigInt(unsigned = false): bigint {
         if (unsigned) {
             return this.isBigEndian ? this.read(8).readBigUInt64BE() : this.read(8).readBigUInt64LE();
         } else {
@@ -45,19 +45,19 @@ export class BufferStream {
         }
     }
 
-    public readFloat() : number {
+    public readFloat(): number {
         return this.isBigEndian ? this.read(4).readFloatBE() : this.read(4).readFloatLE();
     }
 
-    public readFloats(amount: number) : number[] {
+    public readFloats(amount: number): number[] {
         const nums: number[] = [];
-        for (let i=0; i<amount; i++) {
+        for (let i = 0; i < amount; i++) {
             nums.push(this.readFloat());
         }
         return nums;
     }
 
-    public readUntilNull(writeBuffer: number[] = []) : Buffer {
+    public readUntilNull(writeBuffer: number[] = []): Buffer {
         const byte = this.read(1)[0];
         if (byte === 0x00) {
             return Buffer.from(writeBuffer);
@@ -67,10 +67,10 @@ export class BufferStream {
         }
     }
 
-    public readIntFloatPairs() : number[][] {
+    public readIntFloatPairs(): number[][] {
         const options: number[][] = [];
         const size = this.readStream.readableLength / 8;
-        for (let i=0; i < size; i++) {
+        for (let i = 0; i < size; i++) {
             const key = this.readInt();
             const val = this.readFloat();
             options.push([key, val]);
@@ -78,7 +78,7 @@ export class BufferStream {
         return options;
     }
 
-    public readBool() : boolean {
+    public readBool(): boolean {
         const int = this.readInt(1, true);
         return Boolean(int);
     }

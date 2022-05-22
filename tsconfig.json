@@ -9,7 +9,12 @@
         "skipLibCheck": true,
         "esModuleInterop": true,
         "sourceMap": true,
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["src/*"]
+        },
+        "plugins": [{ "transform": "@zerollup/ts-transform-paths" }]
     },
     "include": [
         "src/**/*"

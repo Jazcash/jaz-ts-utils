@@ -14,7 +14,7 @@ export function entries<T extends object>(t: T): Entries<T>[] {
     return Object.entries(t) as Entries<T>[];
 }
 
-export const objectKeys = Object.keys as <T>(o: T) => (Extract<keyof T, string>)[];
+export const objectKeys = Object.keys as <T>(o: T) => Extract<keyof T, string>[];
 
 export function randomFromArray<T>(arr: T[]): T | undefined {
     return arr[Math.floor(Math.random() * arr.length)];
@@ -24,7 +24,7 @@ export function lastInArray<T>(target: T[]): T | undefined {
     return target[target.length - 1];
 }
 
-export function firstInArray<T>(target:T[]): T | undefined {
+export function firstInArray<T>(target: T[]): T | undefined {
     return target[0];
 }
 
@@ -65,7 +65,7 @@ export function groupBy<T, K extends keyof any>(list: T[], getKey: (item: T) => 
     }, new Map<K, T[]>());
 }
 
-export function deepFreeze<T>(obj: T) : DeepReadonly<T> {
+export function deepFreeze<T>(obj: T): DeepReadonly<T> {
     objectKeys(obj).forEach((prop) => {
         if (typeof obj[prop] === "object" && !Object.isFrozen(obj[prop])) {
             deepFreeze(obj[prop]);
@@ -78,14 +78,14 @@ export function deepFreeze<T>(obj: T) : DeepReadonly<T> {
 // https://javascript.plainenglish.io/deep-clone-an-object-and-preserve-its-type-with-typescript-d488c35e5574
 export function clone<T>(source: T): T {
     return Array.isArray(source)
-        ? source.map(item => clone(item))
+        ? source.map((item) => clone(item))
         : source instanceof Date
-            ? new Date(source.getTime())
-            : source && typeof source === "object"
-                ? Object.getOwnPropertyNames(source).reduce((o, prop) => {
-                    Object.defineProperty(o, prop, Object.getOwnPropertyDescriptor(source, prop)!);
-                    o[prop] = clone((source as { [key: string]: any })[prop]);
-                    return o;
-                }, Object.create(Object.getPrototypeOf(source)))
-                : source as T;
+        ? new Date(source.getTime())
+        : source && typeof source === "object"
+        ? Object.getOwnPropertyNames(source).reduce((o, prop) => {
+              Object.defineProperty(o, prop, Object.getOwnPropertyDescriptor(source, prop)!);
+              o[prop] = clone((source as { [key: string]: any })[prop]);
+              return o;
+          }, Object.create(Object.getPrototypeOf(source)))
+        : (source as T);
 }

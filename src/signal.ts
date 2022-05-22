@@ -2,13 +2,13 @@
 export class Signal<T = any> {
     public bindings: Array<SignalBinding<T>> = [];
 
-    public add(callback: (data: T) => void) : SignalBinding<T> {
+    public add(callback: (data: T) => void): SignalBinding<T> {
         const binding = new SignalBinding<T>(this, callback);
         this.bindings.push(binding);
         return binding;
     }
 
-    public addOnce(callback: (data: T) => void) : SignalBinding<T> {
+    public addOnce(callback: (data: T) => void): SignalBinding<T> {
         const binding = new SignalBinding<T>(this, callback, true);
         this.bindings.push(binding);
         return binding;
