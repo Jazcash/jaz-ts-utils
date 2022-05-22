@@ -1,4 +1,4 @@
-import { DeepReadonly } from "@/types";
+import { DeepReadonly } from "~/types";
 
 export function asArray<T>(target: T | T[]): T[] {
     if (Array.isArray(target)) {

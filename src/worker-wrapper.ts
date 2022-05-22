@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Signal } from "@/signal";
+import { Signal } from "~/signal";
 
 export interface WorkerMessage {
     channel: string;

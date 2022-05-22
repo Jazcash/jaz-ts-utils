@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { WorkerWrapper } from "@/worker-wrapper";
+import { WorkerWrapper } from "~/worker-wrapper";
 
 export class BetterWorkerHost extends WorkerWrapper {
     protected worker: Worker;
