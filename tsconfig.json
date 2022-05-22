@@ -10,15 +10,14 @@
         "esModuleInterop": true,
         "sourceMap": true,
         "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": true,
         "baseUrl": ".",
         "paths": {
             "@/*": ["src/*"]
         },
-        "plugins": [{ "transform": "@zerollup/ts-transform-paths" }]
+        "plugins": [{ "transform": "typescript-transform-paths", "afterDeclarations": true }]
     },
-    "include": [
-        "src/**/*"
-    ],
+    "include": ["src/**/*"],
     "exclude": [
         "node_modules",
         "dist",
