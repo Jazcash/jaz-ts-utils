@@ -34,9 +34,11 @@ module.exports = {
         "vue",
         "@typescript-eslint",
         "unused-imports",
+        "simple-import-sort",
     ],
     rules: {
         "no-console": "off",
+
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "@typescript-eslint/no-unused-vars": "off",
         "@typescript-eslint/no-non-null-assertion": "off",
@@ -53,5 +55,8 @@ module.exports = {
         ],
 
         "unused-imports/no-unused-imports": "error",
+
+        "simple-import-sort/imports": "error",
+        "simple-import-sort/exports": "error",
     },
 };

@@ -1,7 +1,5 @@
 const prettierConfig = {
-    plugins: [
-        "./node_modules/prettier-plugin-multiline-arrays",
-    ],
+    plugins: ["./node_modules/prettier-plugin-multiline-arrays"],
     useTabs: false,
     trailingComma: "es5",
     tabWidth: 4,
