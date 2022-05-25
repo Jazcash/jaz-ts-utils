@@ -1,3 +1,4 @@
+import { SetUndefinedValues } from "~/types";
 import { DeepReadonly } from "~/types";
 
 export function asArray<T>(target: T | T[]): T[] {
@@ -94,4 +95,20 @@ export function clone<T>(source: T): T {
               return o;
           }, Object.create(Object.getPrototypeOf(source)))
         : (source as T);
+}
+
+export function assign<T>(target: T, source: SetUndefinedValues<T>) {
+    for (const key in source) {
+        if (source[key] !== undefined) {
+            target[key] = source[key]!;
+        }
+    }
+
+    return target;
+}
+
+export function clearObject(target: any) {
+    for (const key in target) {
+        delete target[key];
+    }
 }
