@@ -112,3 +112,11 @@ export function clearObject(target: any) {
         delete target[key];
     }
 }
+
+export function arrayToMap<T extends Record<string, unknown>, K extends keyof T>(arr: T[], uniqueIndexKey: K): Map<T[K], T> {
+    const map = new Map<T[K], T>();
+    for (const obj of arr) {
+        map.set(obj[uniqueIndexKey], obj);
+    }
+    return map;
+}
