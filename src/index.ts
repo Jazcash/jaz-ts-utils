@@ -4,6 +4,7 @@ export * from "~/buffer-stream";
 export * from "~/count-occurrences";
 export * from "~/deep-proxy";
 export * from "~/delay";
+export * from "~/extract-7z";
 export * from "~/math";
 export * from "~/object";
 export * from "~/signal";
