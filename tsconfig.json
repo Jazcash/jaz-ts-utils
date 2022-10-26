@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
+        "target": "esnext",
+        "module": "esnext",
         "moduleResolution": "node",
         "outDir": "dist",
         "declaration": true,
@@ -23,19 +23,15 @@
         ],
         "lib": [
             "dom",
-            "es2021"
+            "es2021",
+            "ESNext"
         ]
     },
     "include": ["src/**/*"],
-    "exclude": [
-        "node_modules",
-        "dist",
-        "working-files"
-    ],
     "ts-node": {
         "require": ["tsconfig-paths/register"],
         "compilerOptions": {
-            "module": "CommonJS"
+            "module": "esnext"
         }
     }
 }
