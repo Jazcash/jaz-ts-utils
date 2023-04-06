@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-imports */
-import { Signal } from "../src/signal";
+import { Signal } from "..";
 
 it("add", () => {
     const signal = new Signal<number>();

@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-imports */
-import { deepFreeze } from "../src/collection";
+import { deepFreeze } from "..";
 
 const obj = [{ name: "bob", address: { line1: "thing" } }];
 
