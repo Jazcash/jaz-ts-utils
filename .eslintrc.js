@@ -10,32 +10,13 @@ module.exports = {
         withDefaults: "readonly",
         api: "readonly",
     },
-    ignorePatterns: [
-        "dist",
-        "build",
-        "dist_electron",
-        "node_modules",
-        "src/routes.ts",
-        "working-files",
-        "**/*.js",
-    ],
-    extends: [
-        "eslint:recommended",
-        "@vue/typescript/recommended",
-        "plugin:vue/vue3-recommended",
-        "plugin:@typescript-eslint/recommended",
-        "prettier",
-    ],
+    ignorePatterns: ["dist", "build", "dist_electron", "node_modules", "src/routes.ts", "working-files", "**/*.js"],
+    extends: ["eslint:recommended", "@vue/typescript/recommended", "plugin:vue/vue3-recommended", "plugin:@typescript-eslint/recommended"],
     parser: "vue-eslint-parser",
     parserOptions: {
         ecmaVersion: 2020,
     },
-    plugins: [
-        "vue",
-        "@typescript-eslint",
-        "unused-imports",
-        "simple-import-sort",
-    ],
+    plugins: ["vue", "@typescript-eslint", "unused-imports", "simple-import-sort"],
     rules: {
         "no-console": "off",
         "no-restricted-imports": [
@@ -55,10 +36,7 @@ module.exports = {
         "vue/no-v-model-argument": "off",
         "vue/multi-word-component-names": "off",
         "vue/no-multiple-template-root": "off",
-        "vue/attribute-hyphenation": [
-            "error",
-            "never",
-        ],
+        "vue/attribute-hyphenation": ["error", "never"],
 
         "unused-imports/no-unused-imports": "error",
 
