@@ -11,7 +11,7 @@ module.exports = {
         api: "readonly",
     },
     ignorePatterns: ["dist", "build", "dist_electron", "node_modules", "src/routes.ts", "working-files", "**/*.js"],
-    extends: ["eslint:recommended", "@vue/typescript/recommended", "plugin:vue/vue3-recommended", "plugin:@typescript-eslint/recommended"],
+    extends: ["eslint:recommended", "@vue/typescript/recommended", "plugin:vue/vue3-recommended", "plugin:@typescript-eslint/recommended", "prettier"],
     parser: "vue-eslint-parser",
     parserOptions: {
         ecmaVersion: 2020,
