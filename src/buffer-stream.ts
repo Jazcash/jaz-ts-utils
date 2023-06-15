@@ -73,10 +73,7 @@ export class BufferStream {
         for (let i = 0; i < size; i++) {
             const key = this.readInt();
             const val = this.readFloat();
-            options.push([
-                key,
-                val,
-            ]);
+            options.push([key, val]);
         }
         return options;
     }

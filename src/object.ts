@@ -46,13 +46,7 @@ export function shuffle<T>(array: Readonly<T[]>): T[] {
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
-        [
-            arrayCopy[currentIndex],
-            arrayCopy[randomIndex],
-        ] = [
-            arrayCopy[randomIndex],
-            arrayCopy[currentIndex],
-        ];
+        [arrayCopy[currentIndex], arrayCopy[randomIndex]] = [arrayCopy[randomIndex], arrayCopy[currentIndex]];
     }
 
     return arrayCopy;
