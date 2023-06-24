@@ -32,3 +32,5 @@ export type DeepReadonly<T> = ImmutableObject<T>;
 export type ExcludeMethods<T> = Pick<T, { [K in keyof T]: T[K] extends Function ? never : K }[keyof T]>;
 
 export type SetUndefinedValues<T> = { [K in keyof T]?: T[K] | undefined }; // TODO: move to jaz-ts-utils
+
+export type RemoveField<T, K extends string> = T extends { [P in K]: any } ? Omit<T, K> : never;
