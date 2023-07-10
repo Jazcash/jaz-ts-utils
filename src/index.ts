@@ -10,5 +10,6 @@ export * from "~/math";
 export * from "~/object";
 export * from "~/serialize-plugin";
 export * from "~/signal";
+export * from "~/title-case";
 export * from "~/types";
 export * from "~/worker-wrapper";
