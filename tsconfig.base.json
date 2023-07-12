@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "outDir": "dist",
+        "declaration": true,
+        "strict": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "sourceMap": true,
+        "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": true,
+        "allowJs": true,
+        "checkJs": false,
+        "baseUrl": ".",
+        "paths": {
+            "~/*": ["src/*"]
+        },
+        "plugins": [{ "transform": "typescript-transform-paths" }, { "transform": "typescript-transform-paths", "afterDeclarations": true }],
+        "lib": ["dom", "es2021", "ESNext"]
+    },
+    "include": ["src/**/*"],
+    "ts-node": {
+        "require": ["tsconfig-paths/register"],
+        "compilerOptions": {
+            "module": "esnext"
+        }
+    }
+}

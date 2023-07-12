@@ -24,7 +24,7 @@
         "dist",
         ".eslintrc.js",
         "prettier.config.js",
-        "tsconfig.json"
+        "tsconfig.base.json"
     ],
     "dependencies": {
         "7zip-min": "^1.4.3"
