@@ -27,11 +27,14 @@
         "tsconfig.base.json"
     ],
     "dependencies": {
-        "7zip-min": "^1.4.3"
+        "@sinclair/typebox": "^0.29.4",
+        "7zip-min": "^1.4.3",
+        "ajv": "^8.12.0",
+        "ajv-formats": "^2.1.1"
     },
     "devDependencies": {
         "@jest/types": "^28.1.0",
-        "@swc/core": "^1.3.64",
+        "@swc/core": "^1.3.69",
         "@swc/jest": "^0.2.26",
         "@types/7zip-min": "^1.3.1",
         "@types/eslint": "^7.2.5",
@@ -47,7 +50,7 @@
         "eslint-plugin-simple-import-sort": "^7.0.0",
         "eslint-plugin-unused-imports": "^2.0.0",
         "eslint-plugin-vue": "^8.2.0",
-        "jest": "^27.4.7",
+        "jest": "^27.5.1",
         "prettier": "^2.6.2",
         "ts-jest": "^27.1.3",
         "ts-node": "^10.8.0",

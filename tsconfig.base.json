@@ -25,6 +25,7 @@
         "require": ["tsconfig-paths/register"],
         "compilerOptions": {
             "module": "esnext"
-        }
+        },
+        "swc": true
     }
 }
