@@ -2,23 +2,21 @@
 import { Type } from "@sinclair/typebox";
 import path from "path";
 
-import { loadConfig, LoadConfigOptions } from "..";
+import { loadConfig } from "..";
 
 describe("loadConfig", () => {
-    const options: LoadConfigOptions = {
-        filePath: path.join(__dirname, "./resources/config.json"),
-        schema: Type.Object({
-            host: Type.String(),
-            port: Type.Integer(),
-            advanced: Type.Object({
-                title: Type.String({ minLength: 3 }),
-                enabled: Type.Boolean({ default: true }),
-            }),
-        }),
-    };
-
     it("can load config file", async () => {
-        const config = await loadConfig(options);
+        const config = await loadConfig({
+            filePath: path.join(__dirname, "./resources/config.json"),
+            schema: Type.Object({
+                host: Type.String(),
+                port: Type.Integer(),
+                advanced: Type.Object({
+                    title: Type.String({ minLength: 3 }),
+                    enabled: Type.Boolean({ default: true }),
+                }),
+            }),
+        });
 
         expect(config).toStrictEqual({
             host: "localhost",

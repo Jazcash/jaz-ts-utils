@@ -5,12 +5,12 @@ import fs from "fs";
 
 import { Optionals } from "~/types";
 
-export type LoadConfigOptions = {
+export type LoadConfigOptions<T extends TObject> = {
     filePath?: string;
-    schema: TObject;
+    schema: T;
 };
 
-export const defaultLoadConfigOptions: Optionals<LoadConfigOptions> = {
+export const defaultLoadConfigOptions: Optionals<LoadConfigOptions<any>> = {
     filePath: "config.json",
 };
 
@@ -23,7 +23,7 @@ addFormats(ajv);
 /**
  * Define a config structure in JSONSchema using Typebox and then load it
  */
-export async function loadConfig<T extends TObject>(options: LoadConfigOptions): Promise<Static<T>> {
+export async function loadConfig<T extends TObject>(options: LoadConfigOptions<T>): Promise<Static<T>> {
     const finalOptions = Object.assign({}, defaultLoadConfigOptions, options);
 
     try {
