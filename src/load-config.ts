@@ -7,11 +7,13 @@ import { Optionals } from "~/types";
 
 export type LoadConfigOptions<T extends TObject> = {
     filePath?: string;
+    config?: Static<T>;
     schema: T;
 };
 
 export const defaultLoadConfigOptions: Optionals<LoadConfigOptions<any>> = {
     filePath: "config.json",
+    config: undefined,
 };
 
 const ajv = new Ajv({
@@ -28,8 +30,13 @@ export async function loadConfig<T extends TObject>(options: LoadConfigOptions<T
 
     try {
         const validator = ajv.compile(finalOptions.schema);
-        const configFile = await fs.promises.readFile(finalOptions.filePath, { encoding: "utf-8" });
-        const config = JSON.parse(configFile);
+        let config: Static<T> | undefined;
+        if (finalOptions.config) {
+            config = finalOptions.config;
+        } else {
+            const configFile = await fs.promises.readFile(finalOptions.filePath, { encoding: "utf-8" });
+            config = JSON.parse(configFile) as Static<T>;
+        }
         const isValid = validator(config);
         if (!isValid) {
             throw validator.errors;
