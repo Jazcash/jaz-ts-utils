@@ -8,7 +8,6 @@ export * from "~/extract-7z";
 export * from "~/load-config";
 export * from "~/math";
 export * from "~/object";
-export * from "~/serialize-plugin";
 export * from "~/signal";
 export * from "~/title-case";
 export * from "~/typebox";
