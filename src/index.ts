@@ -12,4 +12,5 @@ export * from "~/signal";
 export * from "~/title-case";
 export * from "~/typebox";
 export * from "~/types";
+export * from "~/updatable";
 export * from "~/worker-wrapper";

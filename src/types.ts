@@ -34,3 +34,11 @@ export type ExcludeMethods<T> = Pick<T, { [K in keyof T]: T[K] extends Function 
 export type SetUndefinedValues<T> = { [K in keyof T]?: T[K] | undefined }; // TODO: move to jaz-ts-utils
 
 export type RemoveField<T, K extends string> = T extends { [P in K]: any } ? Omit<T, K> : never;
+
+export type NeverKeys<T> = {
+    [K in keyof T]: T[K] extends never ? K : never;
+}[keyof T];
+
+export type NonNeverKeys<T> = {
+    [K in keyof T]: T[K] extends never ? never : K;
+}[keyof T];

@@ -28,9 +28,11 @@
     ],
     "dependencies": {
         "@sinclair/typebox": "^0.29.4",
+        "@vue/reactivity": "^3.4.13",
         "7zip-min": "^1.4.3",
         "ajv": "^8.12.0",
-        "ajv-formats": "^2.1.1"
+        "ajv-formats": "^2.1.1",
+        "type-fest": "^4.9.0"
     },
     "devDependencies": {
         "@jest/types": "^28.1.0",
@@ -59,8 +61,5 @@
         "typescript": "^4.5.5",
         "typescript-transform-paths": "^3.3.1",
         "vue-eslint-parser": "^8.3.0"
-    },
-    "peerDependencies": {
-        "kysely": "^0.x"
     }
 }
